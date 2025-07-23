@@ -43,7 +43,7 @@
 
 ### 📫 Connect With Me
 
-- LinkedIn: [linkedin.com/in/vikas-kumar](https://linkedin.com/in/vikas-kumar-10ba63189)
+- X (Twitter): [x.com/VikasMukhiya99](https://x.com/VikasMukhiya99)
 - Portfolio: [vikasmukhiya1999.github.io/Personal-Portfolio](https://vikasmukhiya1999.github.io/Personal-Portfolio/)
 - Email: vikasmukhiya1999@gmail.com
 
