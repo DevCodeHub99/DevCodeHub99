@@ -39,33 +39,14 @@ Hi, I'm **Vikas Kumar** — a Full-Stack Developer from India 🇮🇳 who build
 
 ## 🚀 Featured Projects
 
-<div align="center">
-
-<a href="https://github.com/DevCodeHub99/quick-tools">
-<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=quick-tools&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
-</a>
-&nbsp;
-<a href="https://github.com/DevCodeHub99/holi-overlay">
-<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=holi-overlay&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
-</a>
-
-<a href="https://github.com/DevCodeHub99/vikas.dev">
-<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=vikas.dev&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
-</a>
-&nbsp;
-<a href="https://github.com/DevCodeHub99/VisionVoice-Multilingual-Visual-Aid-for-the-Visually-Impaired">
-<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=VisionVoice-Multilingual-Visual-Aid-for-the-Visually-Impaired&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
-</a>
-
-<a href="https://github.com/DevCodeHub99/sndt-invoice-desk">
-<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=sndt-invoice-desk&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
-</a>
-&nbsp;
-<a href="https://github.com/DevCodeHub99/zyk-labs">
-<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=zyk-labs&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
-</a>
-
-</div>
+| Project | Description | Tech | Links |
+|---------|-------------|------|-------|
+| **Quick Tools** | All-in-one developer utility web app | TypeScript, React | [Repo](https://github.com/DevCodeHub99/quick-tools) · [Live](https://quick-tools99.vercel.app/) |
+| **Holi Overlay** | Festive color overlay library — published on npm | HTML, JS | [Repo](https://github.com/DevCodeHub99/holi-overlay) · [npm](https://www.npmjs.com/package/holi-overlay) · [Demo](https://devcodehub99.github.io/holi-overlay/demo.html) |
+| **vikas.dev** | Developer portfolio — projects, skills, blog | TypeScript, React | [Repo](https://github.com/DevCodeHub99/vikas.dev) · [Live](https://devcodehub99.vercel.app) |
+| **VisionVoice** | Multilingual AI visual aid for the visually impaired | TypeScript, Next.js | [Repo](https://github.com/DevCodeHub99/VisionVoice-Multilingual-Visual-Aid-for-the-Visually-Impaired) · [Live](https://visionvoiceai.vercel.app) |
+| **Invoice Desk** | Full-stack GST invoice management system | TypeScript, React | [Repo](https://github.com/DevCodeHub99/sndt-invoice-desk) · [Live](https://shrinavdurgatrade.vercel.app) |
+| **ZYK Labs** | SaaS agency — fast, scalable web applications | TypeScript, Next.js | [Repo](https://github.com/DevCodeHub99/zyk-labs) · [Live](https://zyklabs.in) |
 
 ---
 
@@ -90,7 +71,7 @@ Hi, I'm **Vikas Kumar** — a Full-Stack Developer from India 🇮🇳 who build
 
 <div align="center">
 
-<img width="49%" src="https://github-readme-stats.vercel.app/api?username=DevCodeHub99&show_icons=true&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5&count_private=true&include_all_commits=true" />
+<img width="49%" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=DevCodeHub99&show_icons=true&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5&count_private=true&include_all_commits=true" />
 &nbsp;
 <img width="49%" src="https://github-readme-streak-stats.herokuapp.com?user=DevCodeHub99&theme=react&background=0d1117&border=1a1b27&ring=00ADB5&fire=00ADB5&currStreakLabel=00ADB5" />
 
@@ -99,7 +80,7 @@ Hi, I'm **Vikas Kumar** — a Full-Stack Developer from India 🇮🇳 who build
 <br>
 
 <div align="center">
-<img width="38%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DevCodeHub99&layout=donut-vertical&theme=react&bg_color=0d1117&border_color=1a1b27&title_color=00ADB5&langs_count=6" />
+<img width="38%" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=DevCodeHub99&layout=donut-vertical&theme=react&bg_color=0d1117&border_color=1a1b27&title_color=00ADB5&langs_count=6" />
 </div>
 
 ---
@@ -115,7 +96,7 @@ Hi, I'm **Vikas Kumar** — a Full-Stack Developer from India 🇮🇳 who build
 ## 🏆 GitHub Trophies
 
 <div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=DevCodeHub99&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=10" width="97%" />
+<img src="https://github-profile-trophy-git-master.ryo-ma.vercel.app/?username=DevCodeHub99&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=10" width="97%" />
 </div>
 
 ---
