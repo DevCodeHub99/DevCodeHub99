@@ -1,58 +1,208 @@
-<h1 align="center">Hi 👋, I'm Vikas Kumar</h1>
-<h3 align="center">Aspiring Full-Stack Developer | MERN Stack Enthusiast 🚀</h3>
-
----
-
-🌱 I recently completed the **Internshala Full Stack Development** course and have built several hands-on projects using the **MERN stack (MongoDB, Express.js, React, Node.js)**.
-
-💻 I enjoy building web apps that are **clean, responsive**, and **solve real-world problems**.
-
----
-
-### 🛠️ Tech Stack:
-![MongoDB](https://img.shields.io/badge/-MongoDB-4ea94b?logo=mongodb&logoColor=white&style=flat)
-![Express.js](https://img.shields.io/badge/-Express.js-black?logo=express&style=flat)
-![React](https://img.shields.io/badge/-React-61DAFB?logo=react&style=flat)
-![Node.js](https://img.shields.io/badge/-Node.js-green?logo=node.js&style=flat)
-![JWT](https://img.shields.io/badge/-JWT-000000?logo=json-web-tokens&logoColor=white&style=flat)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black&style=flat)
-![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?logo=tailwind-css&logoColor=white&style=flat)
-![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white&style=flat)
-![GitHub](https://img.shields.io/badge/-GitHub-181717?logo=github&logoColor=white&style=flat)
-
----
-
-### 💼 Featured Projects
-
-| Project | Description | Stack | Live |
-|--------|-------------|--------|------|
-| **[YouTube-like Clone](https://github.com/vikasmukhiya1999/youtube-like-clone)** | A full-stack video sharing platform with login/signup & media upload | MERN | *Deploy if not done* |
-| **[Simple ToDo App](https://github.com/vikasmukhiya1999/simple-todo-app)** | A minimal task tracker with Tailwind and React | React + Vite | [Live Demo](#) |
-| **[Weather Forecast App](https://github.com/vikasmukhiya1999/Weather-Forecast-Application)** | Weather info using OpenWeatherMap API | JS + API | [Live Demo](#) |
-| **[REST API Project](https://github.com/vikasmukhiya1999/RESTful-API-using-NodeJS)** | RESTful CRUD operations using Express | Node.js + MongoDB | N/A |
-
----
-
-### 📈 GitHub Stats
+<div align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a1b27,100:0d1117&height=200&section=header&text=DevCodeHub99&fontSize=50&fontAlignY=40&fontColor=00ADB5&animation=twinkling&desc=Designer%20by%20Eye%20%E2%80%A2%20Developer%20by%20Code&descSize=16&descAlignY=60&descColor=8b949e" width="100%" />
+</div>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=vikasmukhiya1999&show_icons=true&theme=tokyonight" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=2500&pause=900&color=00ADB5&center=true&vCenter=true&width=520&lines=MERN+Stack+Developer;Open+Source+Builder;npm+Package+Publisher;SaaS+%26+Dev+Tool+Maker" />
+</p>
+
+<p align="center">
+<a href="https://github.com/DevCodeHub99"><img src="https://komarev.com/ghpvc/?username=DevCodeHub99&label=Profile+Views&color=00ADB5&style=flat-square" /></a>
+&nbsp;
+<a href="https://github.com/DevCodeHub99?tab=followers"><img src="https://img.shields.io/github/followers/DevCodeHub99?label=Followers&style=flat-square&color=236ad3" /></a>
+&nbsp;
+<a href="https://www.npmjs.com/package/holi-overlay"><img src="https://img.shields.io/npm/dt/holi-overlay?label=npm+Downloads&style=flat-square&color=CB3837" /></a>
 </p>
 
 ---
 
-### 📫 Connect With Me
+## 👨‍💻 About Me
 
-- X (Twitter): [x.com/VikasMukhiya99](https://x.com/VikasMukhiya99)
-- Portfolio: [vikasmukhiya1999.github.io/Personal-Portfolio](https://vikasmukhiya1999.github.io/Personal-Portfolio/)
-- Email: vikasmukhiya1999@gmail.com
+Hi, I'm **Vikas Kumar** — a Full-Stack Developer from India 🇮🇳 who builds **real products that solve real problems**.
+
+- 🔧 I build **developer tools, SaaS apps & web platforms** using the MERN stack  
+- 📦 Published **[holi-overlay](https://www.npmjs.com/package/holi-overlay)** on npm — my first open source package  
+- 🏢 Building **[ZYK Labs](https://zyklabs.in)** — A modern tech studio for modern digital solutions. 
+- ✍️ Writing technical posts on **[dev.to](https://dev.to/devcodehub99)**  
+- 🌱 Currently deep-diving into **system design, scalable APIs & cloud architecture**  
+- 🎯 Goal: Ship tools that developers actually want to use
 
 ---
 
-⭐️ *Always up for learning and collaborating on real-world web apps!*
+## 🛠 Tech Stack
 
+<p align="center">
+<img src="https://skillicons.dev/icons?i=react,nextjs,js,ts,nodejs,express,mongodb,postgres,supabase,tailwind,git,github,vscode,vercel,vite" />
+</p>
 
-<!---
-vikasmukhiya1999/vikasmukhiya1999 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+---
+
+## 🚀 Featured Projects
+
+<div align="center">
+
+<a href="https://github.com/DevCodeHub99/quick-tools">
+<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=quick-tools&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
+</a>
+&nbsp;
+<a href="https://github.com/DevCodeHub99/holi-overlay">
+<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=holi-overlay&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
+</a>
+
+<a href="https://github.com/DevCodeHub99/vikas.dev">
+<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=vikas.dev&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
+</a>
+&nbsp;
+<a href="https://github.com/DevCodeHub99/VisionVoice-Multilingual-Visual-Aid-for-the-Visually-Impaired">
+<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=VisionVoice-Multilingual-Visual-Aid-for-the-Visually-Impaired&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
+</a>
+
+<a href="https://github.com/DevCodeHub99/sndt-invoice-desk">
+<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=sndt-invoice-desk&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
+</a>
+&nbsp;
+<a href="https://github.com/DevCodeHub99/zyk-labs">
+<img width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=DevCodeHub99&repo=zyk-labs&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5" />
+</a>
+
+</div>
+
+---
+
+## 📦 npm Package
+
+<div align="center">
+
+<a href="https://www.npmjs.com/package/holi-overlay"><img src="https://img.shields.io/npm/v/holi-overlay?style=for-the-badge&logo=npm&logoColor=white&color=CB3837&labelColor=0d1117" /></a>
+&nbsp;
+<a href="https://www.npmjs.com/package/holi-overlay"><img src="https://img.shields.io/npm/dt/holi-overlay?style=for-the-badge&logo=npm&logoColor=white&label=downloads&color=236ad3&labelColor=0d1117" /></a>
+&nbsp;
+<a href="https://github.com/DevCodeHub99/holi-overlay"><img src="https://img.shields.io/github/license/DevCodeHub99/holi-overlay?style=for-the-badge&color=22c55e&labelColor=0d1117" /></a>
+
+</div>
+
+> **[holi-overlay](https://www.npmjs.com/package/holi-overlay)** — A lightweight festive color overlay library for websites. Zero dependencies, plug & play.  
+> `npm install holi-overlay` · [Live Demo](https://devcodehub99.github.io/holi-overlay/demo.html) · [Source Code](https://github.com/DevCodeHub99/holi-overlay)
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+
+<img width="49%" src="https://github-readme-stats.vercel.app/api?username=DevCodeHub99&show_icons=true&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5&count_private=true&include_all_commits=true" />
+&nbsp;
+<img width="49%" src="https://github-readme-streak-stats.herokuapp.com?user=DevCodeHub99&theme=react&background=0d1117&border=1a1b27&ring=00ADB5&fire=00ADB5&currStreakLabel=00ADB5" />
+
+</div>
+
+<br>
+
+<div align="center">
+<img width="38%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DevCodeHub99&layout=donut-vertical&theme=react&bg_color=0d1117&border_color=1a1b27&title_color=00ADB5&langs_count=6" />
+</div>
+
+---
+
+## 📈 Contribution Graph
+
+<div align="center">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=DevCodeHub99&bg_color=0d1117&color=00ADB5&line=00ADB5&point=ffffff&area=true&area_color=00ADB5&hide_border=true" width="97%" />
+</div>
+
+---
+
+## 🏆 GitHub Trophies
+
+<div align="center">
+<img src="https://github-profile-trophy.vercel.app/?username=DevCodeHub99&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=10" width="97%" />
+</div>
+
+---
+
+## 🐍 Contribution Snake
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake.svg" />
+  <img alt="Snake animation" src="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake-dark.svg" width="97%" />
+</picture>
+
+</div>
+
+<details>
+<summary>🔧 How to enable the snake animation</summary>
+<br>
+
+Create `.github/workflows/snake.yml` in this repo:
+
+```yaml
+name: Generate Snake
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+
+      - uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+Then go to **Actions → Generate Snake → Run workflow** to trigger it once.
+
+</details>
+
+---
+
+## 🌐 Connect With Me
+
+<p align="center">
+<a href="https://devcodehub99.vercel.app"><img src="https://img.shields.io/badge/Portfolio-00ADB5?style=for-the-badge&logo=vercel&logoColor=white" /></a>
+&nbsp;
+<a href="https://github.com/DevCodeHub99"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
+&nbsp;
+<a href="https://dev.to/devcodehub99"><img src="https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=white" /></a>
+&nbsp;
+<a href="https://x.com/devcodehub99"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" /></a>
+&nbsp;
+<a href="https://www.npmjs.com/~vikasmukhiya1999"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" /></a>
+&nbsp;
+<a href="mailto:vikasmukhiya1999@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+</p>
+
+---
+
+## 💡 Developer Philosophy
+
+> *"Build things that solve real problems. Ship fast, improve continuously, and keep learning."*
+
+<br>
+
+<div align="center">
+
+⭐ **Star my repos if you find them useful — it means a lot!** ⭐
+
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a1b27,100:0d1117&height=100&section=footer" width="100%" />
+
+</div>
