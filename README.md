@@ -76,7 +76,33 @@ Hi, I'm **Vikas Kumar** — a Full-Stack Developer from India 🇮🇳 who build
 
 ---
 
-### 📂 Technical Breakdown & Architectures
+## 📦 npm Packages
+
+<div align="center">
+
+### 🎨 [holi-overlay](https://www.npmjs.com/package/holi-overlay)
+[![npm version](https://img.shields.io/npm/v/holi-overlay?style=for-the-badge&logo=npm&logoColor=white&color=CB3837&labelColor=0d1117)](https://www.npmjs.com/package/holi-overlay)
+[![npm downloads](https://img.shields.io/npm/dt/holi-overlay?style=for-the-badge&logo=npm&logoColor=white&label=downloads&color=236ad3&labelColor=0d1117)](https://www.npmjs.com/package/holi-overlay)
+[![license](https://img.shields.io/github/license/DevCodeHub99/holi-overlay?style=for-the-badge&color=22c55e&labelColor=0d1117)](https://github.com/DevCodeHub99/holi-overlay)
+
+> A lightweight festive color overlay library for websites. Zero dependencies, plug & play.
+> `npm install holi-overlay` · [Live Demo](https://devcodehub99.github.io/holi-overlay/demo.html) · [Source Code](https://github.com/DevCodeHub99/holi-overlay)
+
+<br/>
+
+### 🔐 [@custom-auth/core](https://www.npmjs.com/package/@custom-auth/core)
+[![npm version](https://img.shields.io/npm/v/@custom-auth/core?style=for-the-badge&logo=npm&logoColor=white&color=CB3837&labelColor=0d1117)](https://www.npmjs.com/package/@custom-auth/core)
+[![npm downloads](https://img.shields.io/npm/dt/@custom-auth/core?style=for-the-badge&logo=npm&logoColor=white&label=downloads&color=236ad3&labelColor=0d1117)](https://www.npmjs.com/package/@custom-auth/core)
+[![license](https://img.shields.io/github/license/DevCodeHub99/custom-auth?style=for-the-badge&color=22c55e&labelColor=0d1117)](https://github.com/DevCodeHub99/custom-auth)
+
+> Production-grade, framework-agnostic modular authentication SDK.
+> `npm install @custom-auth/core` · [Source Code](https://github.com/DevCodeHub99/custom-auth)
+
+</div>
+
+---
+
+## 📂 Technical Deep Dive & Architectures
 
 #### 🔐 [custom-auth](https://github.com/DevCodeHub99/custom-auth)
 > **Production-grade, framework-agnostic modular authentication SDK for Node.js, Edge runtimes, and Browsers.**
@@ -136,33 +162,7 @@ Hi, I'm **Vikas Kumar** — a Full-Stack Developer from India 🇮🇳 who build
 *   **Tech Stack**: Next.js, TypeScript, Tailwind CSS.
 *   **Links**: [GitHub Repository](https://github.com/DevCodeHub99/quick-tools) · [Live App](https://quick-tools99.vercel.app/)
 
----
 
-## 📦 npm Packages
-
-<div align="center">
-
-### 🎨 [holi-overlay](https://www.npmjs.com/package/holi-overlay)
-[![npm version](https://img.shields.io/npm/v/holi-overlay?style=for-the-badge&logo=npm&logoColor=white&color=CB3837&labelColor=0d1117)](https://www.npmjs.com/package/holi-overlay)
-[![npm downloads](https://img.shields.io/npm/dt/holi-overlay?style=for-the-badge&logo=npm&logoColor=white&label=downloads&color=236ad3&labelColor=0d1117)](https://www.npmjs.com/package/holi-overlay)
-[![license](https://img.shields.io/github/license/DevCodeHub99/holi-overlay?style=for-the-badge&color=22c55e&labelColor=0d1117)](https://github.com/DevCodeHub99/holi-overlay)
-
-> A lightweight festive color overlay library for websites. Zero dependencies, plug & play.
-> `npm install holi-overlay` · [Live Demo](https://devcodehub99.github.io/holi-overlay/demo.html) · [Source Code](https://github.com/DevCodeHub99/holi-overlay)
-
-<br/>
-
-### 🔐 [@custom-auth/core](https://www.npmjs.com/package/@custom-auth/core)
-[![npm version](https://img.shields.io/npm/v/@custom-auth/core?style=for-the-badge&logo=npm&logoColor=white&color=CB3837&labelColor=0d1117)](https://www.npmjs.com/package/@custom-auth/core)
-[![npm downloads](https://img.shields.io/npm/dt/@custom-auth/core?style=for-the-badge&logo=npm&logoColor=white&label=downloads&color=236ad3&labelColor=0d1117)](https://www.npmjs.com/package/@custom-auth/core)
-[![license](https://img.shields.io/github/license/DevCodeHub99/custom-auth?style=for-the-badge&color=22c55e&labelColor=0d1117)](https://github.com/DevCodeHub99/custom-auth)
-
-> Production-grade, framework-agnostic modular authentication SDK.
-> `npm install @custom-auth/core` · [Source Code](https://github.com/DevCodeHub99/custom-auth)
-
-</div>
-
----
 
 ## 📊 GitHub Stats
 
