@@ -102,6 +102,54 @@ Hi, I'm **Vikas Kumar** — a Full-Stack Developer from India 🇮🇳 who build
 
 ---
 
+## 📊 GitHub Stats
+
+<div align="center">
+
+<img width="49%" src="https://github-stats-extended.vercel.app/api?username=DevCodeHub99&show_icons=true&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5&include_all_commits=true" />
+&nbsp;
+<img width="49%" src="https://github-readme-streak-stats.herokuapp.com?user=DevCodeHub99&theme=react&background=0d1117&border=1a1b27&ring=00ADB5&fire=00ADB5&currStreakLabel=00ADB5" />
+
+</div>
+
+<br>
+
+<div align="center">
+<img width="38%" src="https://github-stats-extended.vercel.app/api/top-langs/?username=DevCodeHub99&layout=donut-vertical&theme=react&bg_color=0d1117&border_color=1a1b27&title_color=00ADB5&langs_count=6" />
+</div>
+
+---
+
+## 🏆 GitHub Trophies
+
+<div align="center">
+<img src="https://github-profile-trophy.vercel.app/?username=DevCodeHub99&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=10" width="97%" />
+</div>
+
+---
+
+## 📈 Contribution Graph
+
+<div align="center">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=DevCodeHub99&bg_color=0d1117&color=00ADB5&line=00ADB5&point=ffffff&area=true&area_color=00ADB5&hide_border=true" width="97%" />
+</div>
+
+---
+
+## 🐍 Contribution Snake
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake.svg" />
+  <img alt="Snake animation" src="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake-dark.svg" width="97%" />
+</picture>
+
+</div>
+
+---
+
 ## 📂 Technical Deep Dive & Architectures
 
 #### 🔐 [custom-auth](https://github.com/DevCodeHub99/custom-auth)
@@ -164,55 +212,7 @@ Hi, I'm **Vikas Kumar** — a Full-Stack Developer from India 🇮🇳 who build
 
 
 
-## 📊 GitHub Stats
 
-<div align="center">
-
-<img width="49%" src="https://github-stats-extended.vercel.app/api?username=DevCodeHub99&show_icons=true&theme=react&bg_color=0d1117&border_color=1a1b27&icon_color=00ADB5&title_color=00ADB5&include_all_commits=true" />
-&nbsp;
-<img width="49%" src="https://github-readme-streak-stats.herokuapp.com?user=DevCodeHub99&theme=react&background=0d1117&border=1a1b27&ring=00ADB5&fire=00ADB5&currStreakLabel=00ADB5" />
-
-</div>
-
-<br>
-
-<div align="center">
-<img width="38%" src="https://github-stats-extended.vercel.app/api/top-langs/?username=DevCodeHub99&layout=donut-vertical&theme=react&bg_color=0d1117&border_color=1a1b27&title_color=00ADB5&langs_count=6" />
-</div>
-
----
-
-## 📈 Contribution Graph
-
-<div align="center">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=DevCodeHub99&bg_color=0d1117&color=00ADB5&line=00ADB5&point=ffffff&area=true&area_color=00ADB5&hide_border=true" width="97%" />
-</div>
-
----
-
-## 🏆 GitHub Trophies
-
-<div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=DevCodeHub99&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=10" width="97%" />
-</div>
-
----
-
-## 🐍 Contribution Snake
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake.svg" />
-  <img alt="Snake animation" src="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake-dark.svg" width="97%" />
-</picture>
-
-</div>
-
-
-
----
 
 ## 🌐 Connect With Me
 
