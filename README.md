@@ -9,6 +9,14 @@
 <p align="center">
   <a href="https://github.com/DevCodeHub99"><img src="https://komarev.com/ghpvc/?username=DevCodeHub99&label=Profile+Views&color=00ADB5&style=flat-square" alt="profile views" /></a>
   &nbsp;
+  <a href="https://github.com/DevCodeHub99?tab=followers"><img src="https://img.shields.io/github/followers/DevCodeHub99?label=Followers&style=flat-square&logo=github&logoColor=white&color=236ad3&labelColor=21262d" alt="GitHub followers" /></a>
+  &nbsp;
+  <a href="https://github.com/DevCodeHub99"><img src="https://img.shields.io/github/stars/DevCodeHub99?style=flat-square&logo=github&logoColor=white&color=00ADB5&labelColor=21262d" alt="GitHub stars" /></a>
+  &nbsp;
+  <a href="https://github.com/DevCodeHub99"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square" alt="PRs Welcome" /></a>
+</p>
+
+<p align="center">
   <a href="https://www.npmjs.com/package/@custom-auth/core"><img src="https://img.shields.io/npm/dt/@custom-auth/core?label=custom--auth+downloads&style=flat-square&color=00ADB5&logo=npm&logoColor=white" alt="custom-auth downloads" /></a>
   &nbsp;
   <a href="https://www.npmjs.com/package/@event-overlay/core"><img src="https://img.shields.io/npm/dt/@event-overlay/core?label=event--overlay+downloads&style=flat-square&color=CB3837&logo=npm&logoColor=white" alt="event-overlay downloads" /></a>
@@ -152,7 +160,7 @@ Full-stack developer from India 🇮🇳 building web applications, developer ut
 ## 📊 GitHub Analytics
 
 <div align="center">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=DevCodeHub99&show_icons=true&theme=react&bg_color=0d1117&border_color=1a1b27&title_color=00ADB5&icon_color=00ADB5&text_color=ffffff" alt="GitHub stats" />
+  <img width="48%" src="https://github-stats-extended.vercel.app/api?username=DevCodeHub99&show_icons=true&theme=react&bg_color=0d1117&border_color=1a1b27&title_color=00ADB5&icon_color=00ADB5&text_color=ffffff" alt="GitHub stats" />
   &nbsp;
   <img width="48%" src="https://github-readme-streak-stats.herokuapp.com?user=DevCodeHub99&theme=react&background=0d1117&border=1a1b27&ring=00ADB5&fire=00ADB5&currStreakLabel=00ADB5" alt="GitHub streak" />
 </div>
@@ -160,7 +168,7 @@ Full-stack developer from India 🇮🇳 building web applications, developer ut
 <br>
 
 <div align="center">
-  <img width="38%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DevCodeHub99&layout=compact&theme=react&bg_color=0d1117&border_color=1a1b27&title_color=00ADB5&text_color=ffffff" alt="Top languages" />
+  <img width="38%" src="https://github-stats-extended.vercel.app/api/top-langs/?username=DevCodeHub99&layout=compact&theme=react&bg_color=0d1117&border_color=1a1b27&title_color=00ADB5&text_color=ffffff" alt="Top languages" />
 </div>
 
 ---
