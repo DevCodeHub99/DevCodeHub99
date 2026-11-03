@@ -79,7 +79,7 @@ Full-stack developer from India 🇮🇳 building web applications, developer ut
 - Speaks descriptions aloud in multiple languages using the Web Speech API
 - `Next.js` • `TypeScript` • `Google Gemini API` • `TailwindCSS`
 
-### [SNDT Invoice Desk](https://github.com/DevCodeHub99/sndt-invoice-desk)
+### [SNDT Invoice Desk](https://github.com/DevCodeHub99/sndt-invoice-desk) &nbsp;·&nbsp; [Live App](https://shrinavdurgatrade.zyklabs.in/)
 *A GST-compliant billing and invoice management web app for small businesses.*
 - Automated tax calculations for CGST, SGST, and IGST
 - Dynamic UPI QR codes for payment collection and client-side PDF invoice generation
@@ -97,9 +97,9 @@ Full-stack developer from India 🇮🇳 building web applications, developer ut
 
 ---
 
-<div align="center">
+## 🏆 Hackathon & Community Badges
 
-### 🏆 DEV.to Community Badges
+<div align="center">
 
 <a href="https://dev.to/devcodehub99">
   <img src="https://media2.dev.to/dynamic/image/width=90,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Fbadge%2Fbadge_image%2F429%2FGitHub_Completion1.png" width="70" alt="GitHub Copilot CLI Challenge Completion" title="GitHub Copilot CLI Challenge Completion" />
@@ -157,6 +157,18 @@ Full-stack developer from India 🇮🇳 building web applications, developer ut
 
 ---
 
+## 🐍 Contribution Activity
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake.svg" />
+    <img alt="Contribution Snake" src="https://raw.githubusercontent.com/DevCodeHub99/DevCodeHub99/output/github-snake-dark.svg" width="100%" />
+  </picture>
+</div>
+
+---
+
 ## 📊 GitHub Analytics
 
 <div align="center">
@@ -178,7 +190,7 @@ Full-stack developer from India 🇮🇳 building web applications, developer ut
 <p align="center">
   <a href="https://github.com/DevCodeHub99"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
   &nbsp;
-  <a href="https://devcodehub99.vercel.app"><img src="https://img.shields.io/badge/Portfolio-00ADB5?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
+  <a href="https://www.devcodehub99.tech"><img src="https://img.shields.io/badge/Portfolio-00ADB5?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
   &nbsp;
   <a href="https://dev.to/devcodehub99"><img src="https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=white" alt="Dev.to" /></a>
   &nbsp;
