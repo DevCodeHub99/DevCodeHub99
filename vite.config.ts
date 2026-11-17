@@ -1,10 +1,23 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
+  const gtmId = env.VITE_GTM_ID || env.VITE_GA_MEASUREMENT_ID || 'GTM-WCSPQXXC';
+
+  return {
+    plugins: [
+      react(),
+      tailwindcss(),
+      {
+        name: 'html-gtm-transform',
+        transformIndexHtml(html: string) {
+          return html.replace(/__GTM_ID__/g, gtmId);
+        },
+      },
+    ],
   
   server: {
     host: '0.0.0.0', // Allow access from network (mobile testing)
@@ -51,4 +64,5 @@ export default defineConfig({
       },
     },
   },
-})
+};
+});

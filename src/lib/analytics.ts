@@ -131,7 +131,7 @@ export function trackEvent<E extends AnalyticsEventName>(
  * Initialize Analytics providers (Google Tag Manager or GA4 if defined)
  */
 export function initAnalytics(): void {
-  const gaId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+  const gaId = import.meta.env.VITE_GTM_ID || import.meta.env.VITE_GA_MEASUREMENT_ID;
 
   if (typeof window !== "undefined") {
     const win = window as unknown as { dataLayer?: unknown[]; gtag?: unknown };
