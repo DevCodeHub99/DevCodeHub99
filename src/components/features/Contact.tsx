@@ -1,0 +1,345 @@
+import { useState, type FormEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Section } from "@/components/layout";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { FormError } from "@/components/ui/form-error";
+import { siteConfig, contactContent, socialLinks } from "@/config/site";
+import { Mail, Send, getIcon, CheckCircle, AlertCircle, MapPin } from "@/lib/icons";
+import { ContactFormSkeleton } from "@/components/ui/skeleton";
+import { validateContactForm } from "@/lib/validation";
+import { trackEvent } from "@/lib/analytics";
+
+// Pre-resolve social icons outside component to avoid render-time creation
+const githubLink = socialLinks.find(l => l.name === "GitHub");
+const GithubIcon = githubLink ? getIcon(githubLink.icon) : null;
+const linkedinLink = socialLinks.find(l => l.name === "LinkedIn");
+const LinkedinIcon = linkedinLink ? getIcon(linkedinLink.icon) : null;
+
+interface ContactProps {
+  isLoading?: boolean;
+}
+
+export function Contact({ isLoading = false }: ContactProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErrors({});
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    // Validate form data
+    const validation = validateContactForm(data);
+    
+    if (!validation.success) {
+      setErrors(validation.errors || {});
+      setIsSubmitting(false);
+      trackEvent("contact_submit", { status: "error", error: "Validation failed" });
+      return;
+    }
+
+    trackEvent("contact_submit", { status: "attempt" });
+
+    try {
+      // Submit to Formspree
+      const response = await fetch(siteConfig.formspreeUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(validation.data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      setIsSuccess(true);
+      trackEvent("contact_submit", { status: "success" });
+      (e.target as HTMLFormElement).reset();
+      
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 4000);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : "Failed to send message. Please try again.";
+      trackEvent("contact_submit", { status: "error", error: errorMessage });
+      setErrors({
+        submit: errorMessage,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <Section id="contact" subtitle={contactContent.subtitle} title={contactContent.title} dark>
+      <div className="grid lg:grid-cols-2 gap-12">
+        {/* Info */}
+        <div>
+          <h3 className="text-2xl font-bold mb-4">{contactContent.heading}</h3>
+          <p className="text-muted-foreground mb-8 text-lg">{contactContent.description}</p>
+
+          <div className="space-y-6">
+            <ContactInfo
+              icon={<Mail className="w-6 h-6" />}
+              label="Email"
+              value={siteConfig.email}
+              href={`mailto:${siteConfig.email}`}
+              onClick={() => trackEvent("contact_click", { channel: "email", value: siteConfig.email })}
+              colorClass="bg-primary/10 text-primary"
+            />
+            <ContactInfo
+              icon={<MapPin className="w-6 h-6" />}
+              label="Location"
+              value={siteConfig.location}
+              colorClass="bg-amber-500/10 text-amber-500"
+            />
+            {githubLink && GithubIcon && (
+              <ContactInfo
+                icon={<GithubIcon className="w-6 h-6" />}
+                label="GitHub"
+                value={githubLink.url.replace("https://", "")}
+                href={githubLink.url}
+                onClick={() => trackEvent("social_click", { platform: "GitHub", url: githubLink.url, location: "contact" })}
+                colorClass="bg-secondary/10 text-secondary"
+                external
+              />
+            )}
+            {linkedinLink && LinkedinIcon && (
+              <ContactInfo
+                icon={<LinkedinIcon className="w-6 h-6" />}
+                label="LinkedIn"
+                value={linkedinLink.url.replace("https://", "")}
+                href={linkedinLink.url}
+                onClick={() => trackEvent("social_click", { platform: "LinkedIn", url: linkedinLink.url, location: "contact" })}
+                colorClass="bg-sky-500/10 text-sky-500"
+                external
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Form */}
+        {isLoading ? (
+          <ContactFormSkeleton />
+        ) : (
+          <div className="bg-card border border-border rounded-2xl p-8 shadow-xl">
+            {/* Success Message */}
+            <AnimatePresence>
+              {isSuccess && (
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3"
+                >
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-green-900">Message Sent Successfully!</h4>
+                    <p className="text-sm text-green-700 mt-1">
+                      Thank you for reaching out. I'll get back to you as soon as possible.
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Submit Error */}
+              <AnimatePresence>
+                {errors.submit && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3"
+                  >
+                    <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-red-900">Error</h4>
+                      <p className="text-sm text-red-700 mt-1">{errors.submit}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Name Field */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+              >
+                <label htmlFor="name" className="text-sm font-medium">
+                  Name
+                </label>
+                <Input
+                  id="name"
+                  type="text"
+                  name="name"
+                  placeholder="John Doe"
+                  minLength={2}
+                  maxLength={100}
+                  required
+                  disabled={isSubmitting}
+                  className={`bg-background h-12 mt-2 transition-all ${
+                    errors.name ? "border-red-500 focus:ring-red-500" : ""
+                  }`}
+                  aria-required="true"
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? "name-error" : undefined}
+                />
+                <FormError message={errors.name} id="name-error" />
+              </motion.div>
+
+              {/* Email Field */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <label htmlFor="email" className="text-sm font-medium">
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="john@example.com"
+                  required
+                  disabled={isSubmitting}
+                  className={`bg-background h-12 mt-2 transition-all ${
+                    errors.email ? "border-red-500 focus:ring-red-500" : ""
+                  }`}
+                  aria-required="true"
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
+                />
+                <FormError message={errors.email} id="email-error" />
+              </motion.div>
+
+              {/* Message Field */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <label htmlFor="message" className="text-sm font-medium">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell me why you're reaching out…"
+                  minLength={10}
+                  maxLength={5000}
+                  required
+                  disabled={isSubmitting}
+                  className={`bg-background min-h-[150px] resize-none mt-2 transition-all ${
+                    errors.message ? "border-red-500 focus:ring-red-500" : ""
+                  }`}
+                  aria-required="true"
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? "message-error" : undefined}
+                />
+                <FormError message={errors.message} id="message-error" />
+              </motion.div>
+
+              {/* Submit Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                <Button
+                  type="submit"
+                  disabled={isSubmitting || isSuccess}
+                  className={`w-full h-12 text-base font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 ${
+                    isSuccess
+                      ? "bg-green-500 hover:bg-green-600 text-white"
+                      : isSubmitting
+                      ? "bg-primary/80 cursor-not-allowed"
+                      : "hover:shadow-lg hover:shadow-primary/50"
+                  }`}
+                >
+                  {isSuccess ? (
+                    <motion.span
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <CheckCircle className="w-5 h-5" />
+                      Message Sent!
+                    </motion.span>
+                  ) : isSubmitting ? (
+                    <motion.span
+                      animate={{ opacity: [0.5, 1, 0.5] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <span className="inline-block">⌛</span>
+                      Sending...
+                    </motion.span>
+                  ) : (
+                    <span className="flex items-center justify-center gap-2">
+                      Send Message
+                      <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  )}
+                </Button>
+              </motion.div>
+            </form>
+          </div>
+        )}
+      </div>
+    </Section>
+  );
+}
+
+function ContactInfo({
+  icon,
+  label,
+  value,
+  href,
+  colorClass,
+  external,
+  onClick,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  href?: string;
+  colorClass: string;
+  external?: boolean;
+  onClick?: () => void;
+}) {
+  return (
+    <div className="flex items-center gap-4">
+      <div className={`p-3 rounded-full ${colorClass}`}>{icon}</div>
+      <div>
+        <p className="text-sm font-medium text-muted-foreground">{label}</p>
+        {href ? (
+          <a
+            href={href}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+            onClick={onClick}
+            className="text-lg font-semibold hover:text-primary transition-colors"
+          >
+            {value}
+          </a>
+        ) : (
+          <span className="text-lg font-semibold text-foreground/90">{value}</span>
+        )}
+      </div>
+    </div>
+  );
+}
