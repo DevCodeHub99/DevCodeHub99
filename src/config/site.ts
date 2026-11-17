@@ -27,7 +27,7 @@ export const siteConfig = {
   location: "New Delhi, India",
 
   // URLs
-  url: "https://DevCodeHub99.vercel.app",
+  url: "https://devcodehub99.tech",
   resumeUrl: "/resume.pdf",
   resumeDownloadName: "Vikas_Kumar_full_stack_resume.pdf",
   ogImage: "/og-image.webp",

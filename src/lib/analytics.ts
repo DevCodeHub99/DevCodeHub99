@@ -94,12 +94,21 @@ export function trackEvent<E extends AnalyticsEventName>(
     // Vercel analytics graceful skip
   }
 
-  // 2. Google Analytics 4 (gtag)
-  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+  // 2. Google Tag Manager / Google Analytics 4 (dataLayer & gtag)
+  if (typeof window !== "undefined") {
     try {
-      window.gtag("event", eventName, payload as Record<string, unknown>);
+      const win = window as unknown as { dataLayer?: Record<string, unknown>[] };
+      if (Array.isArray(win.dataLayer)) {
+        win.dataLayer.push({
+          event: eventName,
+          ...(payload as Record<string, unknown>),
+        });
+      }
+      if (typeof window.gtag === "function") {
+        window.gtag("event", eventName, payload as Record<string, unknown>);
+      }
     } catch (e) {
-      console.warn("GA4 event tracking failed", e);
+      console.warn("GTM/GA4 event tracking failed", e);
     }
   }
 
@@ -119,24 +128,37 @@ export function trackEvent<E extends AnalyticsEventName>(
 }
 
 /**
- * Initialize Analytics providers (GA4 if VITE_GA_MEASUREMENT_ID is defined)
+ * Initialize Analytics providers (Google Tag Manager or GA4 if defined)
  */
 export function initAnalytics(): void {
   const gaId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-  if (gaId && typeof window !== "undefined" && !window.gtag) {
-    const script = document.createElement("script");
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-    script.async = true;
-    document.head.appendChild(script);
 
-    // Setup dataLayer
-    const dataLayer = ((window as unknown as { dataLayer: unknown[] }).dataLayer =
-      (window as unknown as { dataLayer: unknown[] }).dataLayer || []);
-    window.gtag = function () {
-      // eslint-disable-next-line prefer-rest-params
-      dataLayer.push(arguments);
-    };
-    window.gtag("js", new Date());
-    window.gtag("config", gaId);
+  if (typeof window !== "undefined") {
+    const win = window as unknown as { dataLayer?: unknown[]; gtag?: unknown };
+    win.dataLayer = win.dataLayer || [];
+    if (!win.gtag) {
+      win.gtag = function () {
+        // eslint-disable-next-line prefer-rest-params
+        (win.dataLayer as unknown[]).push(arguments);
+      };
+    }
+
+    if (gaId) {
+      const alreadyLoaded = document.querySelector(`script[src*="${gaId}"]`);
+      if (!alreadyLoaded) {
+        const isGtm = gaId.startsWith("GTM-");
+        const script = document.createElement("script");
+        script.src = isGtm
+          ? `https://www.googletagmanager.com/gtm.js?id=${gaId}`
+          : `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+        script.async = true;
+        document.head.appendChild(script);
+
+        if (!isGtm && typeof window.gtag === "function") {
+          window.gtag("js", new Date());
+          window.gtag("config", gaId);
+        }
+      }
+    }
   }
 }
