@@ -2,7 +2,7 @@ import { Moon, Sun } from "@/lib/icons";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 import { motion, AnimatePresence } from "framer-motion";
-import { trackEvent } from "@/lib/analytics";
+import { trackThemeToggle } from "@/lib/analytics";
 
 export function ThemeToggle() {
   const { resolvedTheme, toggleTheme } = useTheme();
@@ -10,7 +10,7 @@ export function ThemeToggle() {
 
   const handleToggle = () => {
     toggleTheme();
-    trackEvent("theme_toggle", { theme: isDark ? "light" : "dark" });
+    trackThemeToggle(isDark ? "light" : "dark");
   };
 
   return (

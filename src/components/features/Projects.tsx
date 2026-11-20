@@ -6,7 +6,7 @@ import { Github, ExternalLink, iconMap, Code, ChevronDown, ChevronUp, ArrowRight
 import { techConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@/types";
-import { trackEvent } from "@/lib/analytics";
+import { trackProject, trackViewMore, trackLink, trackSkill } from "@/lib/analytics";
 
 // Pre-resolve icons to avoid creating components during render
 const techIcons = Object.fromEntries(
@@ -67,7 +67,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackEvent("project_click", { project: project.title, type: "github", url: project.githubUrl! })}
+              onClick={() =>
+                trackProject({
+                  project_name: project.title,
+                  destination_type: "github",
+                  project_url: project.githubUrl!,
+                  placement: "project_card",
+                })
+              }
               className="w-10 h-10 rounded-full bg-card shadow-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all"
               aria-label="View source code"
             >
@@ -79,7 +86,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackEvent("project_click", { project: project.title, type: "demo", url: project.demoUrl! })}
+              onClick={() =>
+                trackProject({
+                  project_name: project.title,
+                  destination_type: project.demoUrl!.includes("npmjs.com") ? "npm" : "demo",
+                  project_url: project.demoUrl!,
+                  placement: "project_card",
+                })
+              }
               className="w-10 h-10 rounded-full bg-card shadow-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all"
               aria-label="View live demo or package"
             >
@@ -107,14 +121,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             const color = config?.color || "#64748b";
             
             return (
-              <span
+              <button
+                type="button"
                 key={tech}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-medium bg-background"
+                onClick={() => trackSkill(tech, "project_card")}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-medium bg-background hover:scale-105 transition-all cursor-pointer"
                 style={{ borderColor: `${color}40`, color }}
+                aria-label={`Technology: ${tech}`}
               >
                 <Icon className="w-3.5 h-3.5" />
                 {tech}
-              </span>
+              </button>
             );
           })}
         </div>
@@ -150,7 +167,7 @@ export function Projects() {
             onClick={() => {
               const next = !isExpanded;
               setIsExpanded(next);
-              trackEvent("view_more_click", {
+              trackViewMore({
                 section: "projects",
                 action: next ? "expand" : "collapse",
               });
@@ -170,10 +187,11 @@ export function Projects() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => {
-              trackEvent("view_more_click", {
-                section: "projects",
-                action: "redirect",
-                target: "github_repositories",
+              trackLink({
+                name: "view_all_github_repositories",
+                url: "https://github.com/DevCodeHub99?tab=repositories",
+                type: "external",
+                placement: "projects_section",
               });
             }}
             className="inline-flex items-center gap-2 rounded-full px-6 h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-105 active:scale-95 transition-all duration-300"

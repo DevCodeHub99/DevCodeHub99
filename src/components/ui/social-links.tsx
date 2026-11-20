@@ -1,6 +1,6 @@
 import { getIcon } from "@/lib/icons";
 import type { SocialLink } from "@/types";
-import { trackEvent } from "@/lib/analytics";
+import { trackSocialLink } from "@/lib/analytics";
 
 interface SocialLinksProps {
   links: SocialLink[];
@@ -20,7 +20,13 @@ export function SocialLinks({ links, size = "w-6 h-6", className = "", location 
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackEvent("social_click", { platform: link.name, url: link.url, location })}
+            onClick={() =>
+              trackSocialLink({
+                platform: link.name,
+                profile_url: link.url,
+                placement: location,
+              })
+            }
             className="hover:text-foreground hover:scale-110 transition-all"
             aria-label={link.ariaLabel}
           >

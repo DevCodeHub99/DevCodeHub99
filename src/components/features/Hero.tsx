@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { SocialLinks } from "@/components/ui/social-links";
 import { heroContent, socialLinks, siteConfig } from "@/config/site";
 import { ArrowRight, Download } from "@/lib/icons";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackNavigation, trackResume } from "@/lib/analytics";
 
 // Get data from config
 const { codeLines, terminalSequence, codeBlockHeader } = heroContent;
@@ -63,6 +63,11 @@ function InteractiveTerminal() {
   const handleTypingComplete = () => setIsTyping(false);
 
   const restartAnimation = () => {
+    trackEvent("navigation_click", {
+      link_name: "terminal_replay",
+      link_url: "#hero-terminal",
+      navigation_location: "hero_terminal",
+    });
     setStep(0);
     setIsTyping(true);
   };
@@ -248,7 +253,11 @@ export function Hero() {
               size="lg"
               className="rounded-full text-base font-semibold px-6 sm:px-8 h-12 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all"
               onClick={() => {
-                trackEvent("nav_click", { section: "projects" });
+                trackNavigation({
+                  link_name: "View Projects",
+                  link_url: "#projects",
+                  navigation_location: "hero",
+                });
                 scrollTo("projects");
               }}
             >
@@ -259,7 +268,14 @@ export function Hero() {
             <a
               href={siteConfig.resumeUrl}
               download={siteConfig.resumeDownloadName}
-              onClick={() => trackEvent("resume_click", { location: "hero", action: "download" })}
+              onClick={() =>
+                trackResume({
+                  action: "download",
+                  placement: "hero",
+                  document_url: siteConfig.resumeUrl,
+                  document_name: siteConfig.resumeDownloadName,
+                })
+              }
               className="inline-flex items-center gap-2 rounded-full text-base font-semibold px-6 sm:px-7 h-12 border-2 border-foreground/20 hover:border-primary text-foreground hover:text-primary transition-all duration-300 hover:-translate-y-0.5 shadow-sm"
               aria-label="Download resume"
             >
@@ -272,7 +288,11 @@ export function Hero() {
               size="lg"
               className="rounded-full text-base font-semibold px-6 sm:px-8 h-12 border-2 hover:bg-accent hover:text-accent-foreground transition-all"
               onClick={() => {
-                trackEvent("nav_click", { section: "contact" });
+                trackNavigation({
+                  link_name: "Contact Me",
+                  link_url: "#contact",
+                  navigation_location: "hero",
+                });
                 scrollTo("contact");
               }}
             >

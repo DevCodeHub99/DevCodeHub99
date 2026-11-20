@@ -5,16 +5,19 @@ import path from 'path'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
-  const gtmId = env.VITE_GTM_ID || env.VITE_GA_MEASUREMENT_ID || 'GTM-WCSPQXXC';
+  const gaId = env.VITE_PUBLIC_GA_ID || '';
 
   return {
     plugins: [
       react(),
       tailwindcss(),
       {
-        name: 'html-gtm-transform',
+        name: 'html-ga-transform',
         transformIndexHtml(html: string) {
-          return html.replace(/__GTM_ID__/g, gtmId);
+          const gaScript = gaId && gaId.startsWith('G-') && gaId !== 'G-XXXXXXXXXX'
+            ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${gaId}"></script>`
+            : '';
+          return html.replace('<!--__GA_SCRIPT__-->', gaScript);
         },
       },
     ],

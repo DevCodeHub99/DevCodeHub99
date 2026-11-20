@@ -1,15 +1,22 @@
 <!doctype html>
 <html lang="en" class="dark">
   <head>
-    <!-- Google Tag (gtag.js / GTM) -->
-    <script async src="https://www.googletagmanager.com/gtm.js?id=__GTM_ID__"></script>
+    <!-- Google Analytics 4 (gtag.js) Setup & Google Consent Mode v2 -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '__GTM_ID__');
+      function gtag(){window.dataLayer.push(arguments);}
+      window.gtag = gtag;
+
+      // Google Consent Mode v2 Default Settings (Privacy-first)
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
     </script>
-    <!-- End Google Tag -->
+    <!--__GA_SCRIPT__-->
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -170,10 +177,7 @@
     </script>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=__GTM_ID__"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     

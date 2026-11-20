@@ -2,15 +2,25 @@ import { motion } from "framer-motion";
 import { Section } from "@/components/layout";
 import { experiences, siteConfig } from "@/config/site";
 import { Briefcase, MapPin, Calendar, ExternalLink, Download, Eye } from "@/lib/icons";
-import { trackEvent } from "@/lib/analytics";
+import { trackResume, trackLink, trackSkill } from "@/lib/analytics";
 
 export function Experience() {
   const handleResumeDownload = () => {
-    trackEvent("resume_click", { location: "experience", action: "download" });
+    trackResume({
+      action: "download",
+      placement: "experience_banner",
+      document_url: siteConfig.resumeUrl,
+      document_name: siteConfig.resumeDownloadName,
+    });
   };
 
   const handleResumeView = () => {
-    trackEvent("resume_click", { location: "experience", action: "view" });
+    trackResume({
+      action: "view",
+      placement: "experience_banner",
+      document_url: siteConfig.resumeUrl,
+      document_name: siteConfig.resumeDownloadName,
+    });
   };
 
   return (
@@ -46,6 +56,14 @@ export function Experience() {
                           href={exp.companyUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() =>
+                            trackLink({
+                              name: exp.company,
+                              url: exp.companyUrl!,
+                              type: "external",
+                              placement: "experience_company_link",
+                            })
+                          }
                           className="text-xs text-muted-foreground hover:text-primary inline-flex items-center gap-1 transition-colors"
                           aria-label={`Visit ${exp.company}`}
                         >
@@ -87,12 +105,15 @@ export function Experience() {
                 {/* Tech stack tags */}
                 <div className="flex flex-wrap gap-2 pt-2 border-t border-border/30">
                   {exp.skills.map((skill) => (
-                    <span
+                    <button
+                      type="button"
                       key={skill}
-                      className="px-2.5 py-1 rounded-md text-xs font-medium bg-muted/60 text-foreground/80 border border-border/30"
+                      onClick={() => trackSkill(skill, "experience_timeline")}
+                      className="px-2.5 py-1 rounded-md text-xs font-medium bg-muted/60 text-foreground/80 border border-border/30 hover:border-primary/40 hover:text-primary transition-colors cursor-pointer text-left"
+                      aria-label={`Skill: ${skill}`}
                     >
                       {skill}
-                    </span>
+                    </button>
                   ))}
                 </div>
               </div>

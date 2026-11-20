@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useState, useRef, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "@/components/layout";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,14 @@ import { siteConfig, contactContent, socialLinks } from "@/config/site";
 import { Mail, Send, getIcon, CheckCircle, AlertCircle, MapPin } from "@/lib/icons";
 import { ContactFormSkeleton } from "@/components/ui/skeleton";
 import { validateContactForm } from "@/lib/validation";
-import { trackEvent } from "@/lib/analytics";
+import {
+  trackEvent,
+  trackFormStart,
+  trackFormError,
+  trackFormSuccess,
+  trackContactClick,
+  trackSocialLink,
+} from "@/lib/analytics";
 
 // Pre-resolve social icons outside component to avoid render-time creation
 const githubLink = socialLinks.find(l => l.name === "GitHub");
@@ -25,6 +32,14 @@ export function Contact({ isLoading = false }: ContactProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const hasStartedRef = useRef(false);
+
+  const handleFieldFocus = () => {
+    if (!hasStartedRef.current) {
+      hasStartedRef.current = true;
+      trackFormStart("contact_form");
+    }
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,11 +59,20 @@ export function Contact({ isLoading = false }: ContactProps) {
     if (!validation.success) {
       setErrors(validation.errors || {});
       setIsSubmitting(false);
-      trackEvent("contact_submit", { status: "error", error: "Validation failed" });
+
+      // Track each validation error by field identifier only (NO personal data)
+      if (validation.errors) {
+        Object.keys(validation.errors).forEach((field) => {
+          trackFormError("contact_form", field);
+        });
+      }
       return;
     }
 
-    trackEvent("contact_submit", { status: "attempt" });
+    trackEvent("form_submit", {
+      form_id: "contact_form",
+      status: "attempt",
+    });
 
     try {
       // Submit to Formspree
@@ -63,7 +87,9 @@ export function Contact({ isLoading = false }: ContactProps) {
       }
 
       setIsSuccess(true);
-      trackEvent("contact_submit", { status: "success" });
+      // Fired strictly on verified HTTP 200 response
+      trackFormSuccess("contact_form");
+      hasStartedRef.current = false;
       (e.target as HTMLFormElement).reset();
       
       setTimeout(() => {
@@ -71,7 +97,11 @@ export function Contact({ isLoading = false }: ContactProps) {
       }, 4000);
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : "Failed to send message. Please try again.";
-      trackEvent("contact_submit", { status: "error", error: errorMessage });
+      trackEvent("form_submit", {
+        form_id: "contact_form",
+        status: "error",
+        error_type: "submission_failed",
+      });
       setErrors({
         submit: errorMessage,
       });
@@ -94,7 +124,7 @@ export function Contact({ isLoading = false }: ContactProps) {
               label="Email"
               value={siteConfig.email}
               href={`mailto:${siteConfig.email}`}
-              onClick={() => trackEvent("contact_click", { channel: "email", value: siteConfig.email })}
+              onClick={() => trackContactClick({ channel: "email", placement: "contact_section" })}
               colorClass="bg-primary/10 text-primary"
             />
             <ContactInfo
@@ -109,7 +139,13 @@ export function Contact({ isLoading = false }: ContactProps) {
                 label="GitHub"
                 value={githubLink.url.replace("https://", "")}
                 href={githubLink.url}
-                onClick={() => trackEvent("social_click", { platform: "GitHub", url: githubLink.url, location: "contact" })}
+                onClick={() =>
+                  trackSocialLink({
+                    platform: "GitHub",
+                    profile_url: githubLink.url,
+                    placement: "contact_section",
+                  })
+                }
                 colorClass="bg-secondary/10 text-secondary"
                 external
               />
@@ -120,7 +156,13 @@ export function Contact({ isLoading = false }: ContactProps) {
                 label="LinkedIn"
                 value={linkedinLink.url.replace("https://", "")}
                 href={linkedinLink.url}
-                onClick={() => trackEvent("social_click", { platform: "LinkedIn", url: linkedinLink.url, location: "contact" })}
+                onClick={() =>
+                  trackSocialLink({
+                    platform: "LinkedIn",
+                    profile_url: linkedinLink.url,
+                    placement: "contact_section",
+                  })
+                }
                 colorClass="bg-sky-500/10 text-sky-500"
                 external
               />
@@ -190,6 +232,7 @@ export function Contact({ isLoading = false }: ContactProps) {
                   maxLength={100}
                   required
                   disabled={isSubmitting}
+                  onFocus={handleFieldFocus}
                   className={`bg-background h-12 mt-2 transition-all ${
                     errors.name ? "border-red-500 focus:ring-red-500" : ""
                   }`}
@@ -216,6 +259,7 @@ export function Contact({ isLoading = false }: ContactProps) {
                   placeholder="john@example.com"
                   required
                   disabled={isSubmitting}
+                  onFocus={handleFieldFocus}
                   className={`bg-background h-12 mt-2 transition-all ${
                     errors.email ? "border-red-500 focus:ring-red-500" : ""
                   }`}
@@ -243,6 +287,7 @@ export function Contact({ isLoading = false }: ContactProps) {
                   maxLength={5000}
                   required
                   disabled={isSubmitting}
+                  onFocus={handleFieldFocus}
                   className={`bg-background min-h-[150px] resize-none mt-2 transition-all ${
                     errors.message ? "border-red-500 focus:ring-red-500" : ""
                   }`}

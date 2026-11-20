@@ -14,7 +14,7 @@
     "@tanstack/react-query": "^5.90.16",
     "@vercel/analytics": "^1.6.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.26.1",
+    "framer-motion": "^12.43.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",

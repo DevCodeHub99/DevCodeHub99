@@ -5,7 +5,7 @@ import { navLinks, siteConfig } from "@/config/site";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { throttle } from "@/lib/performance";
 import { PERFORMANCE } from "@/lib/constants";
-import { trackEvent } from "@/lib/analytics";
+import { trackNavigation, trackResume, trackEvent } from "@/lib/analytics";
 
 const Menu = iconMap.Menu;
 const Close = iconMap.Close;
@@ -56,7 +56,14 @@ export function Navbar() {
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <a
           href="/"
-          onClick={scrollToTop}
+          onClick={(e) => {
+            trackNavigation({
+              link_name: "logo_home",
+              link_url: "/",
+              navigation_location: "header",
+            });
+            scrollToTop(e);
+          }}
           className="flex items-center gap-2 group cursor-pointer"
           aria-label="Go to homepage"
         >
@@ -75,7 +82,11 @@ export function Navbar() {
               key={link.label}
               href={link.href}
               onClick={(e) => {
-                trackEvent("nav_click", { section: link.label });
+                trackNavigation({
+                  link_name: link.label,
+                  link_url: link.href,
+                  navigation_location: "header",
+                });
                 scrollToSection(e, link.href);
               }}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
@@ -91,7 +102,14 @@ export function Navbar() {
             <a 
               href={siteConfig.resumeUrl} 
               download={siteConfig.resumeDownloadName}
-              onClick={() => trackEvent("resume_click", { location: "navbar", action: "download" })}
+              onClick={() =>
+                trackResume({
+                  action: "download",
+                  placement: "navbar_desktop",
+                  document_url: siteConfig.resumeUrl,
+                  document_name: siteConfig.resumeDownloadName,
+                })
+              }
               aria-label="Download resume"
               className="group relative inline-flex items-center gap-2 px-5 py-2 rounded-full border-2 border-foreground/20 text-sm font-medium text-foreground overflow-hidden transition-all duration-300 hover:border-primary hover:text-primary hover:shadow-lg hover:shadow-primary/10"
             >
@@ -106,7 +124,14 @@ export function Navbar() {
             {/* Hire Me Button - with shine effect */}
             <a
               href="#contact"
-              onClick={(e) => scrollToSection(e, "#contact")}
+              onClick={(e) => {
+                trackNavigation({
+                  link_name: "Hire Me",
+                  link_url: "#contact",
+                  navigation_location: "header",
+                });
+                scrollToSection(e, "#contact");
+              }}
               className="group relative inline-flex items-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 active:scale-95"
             >
               <span className="relative z-10">Hire Me</span>
@@ -121,7 +146,14 @@ export function Navbar() {
           <ThemeToggle />
           <button
             className="p-2 text-foreground hover:bg-accent rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              trackEvent("navigation_click", {
+                link_name: isOpen ? "mobile_menu_close" : "mobile_menu_open",
+                link_url: "#mobile-menu",
+                navigation_location: "mobile_header",
+              });
+              setIsOpen(!isOpen);
+            }}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
@@ -149,7 +181,11 @@ export function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => {
-                    trackEvent("nav_click", { section: link.label });
+                    trackNavigation({
+                      link_name: link.label,
+                      link_url: link.href,
+                      navigation_location: "mobile_menu",
+                    });
                     scrollToSection(e, link.href);
                   }}
                   className="text-lg font-medium text-foreground/80 hover:text-primary py-2 border-b border-border/50 focus:outline-none focus-visible:text-primary"
@@ -160,7 +196,14 @@ export function Navbar() {
               <a
                 href={siteConfig.resumeUrl}
                 download={siteConfig.resumeDownloadName}
-                onClick={() => trackEvent("resume_click", { location: "navbar", action: "download" })}
+                onClick={() =>
+                  trackResume({
+                    action: "download",
+                    placement: "mobile_menu",
+                    document_url: siteConfig.resumeUrl,
+                    document_name: siteConfig.resumeDownloadName,
+                  })
+                }
                 className="flex items-center gap-2 text-lg font-medium text-foreground/80 hover:text-primary py-2"
               >
                 <Download className="w-5 h-5" />

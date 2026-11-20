@@ -5,7 +5,7 @@ import { useBlogPosts } from "@/hooks/use-portfolio";
 import { siteConfig, blogContent } from "@/config/site";
 import { ExternalLink, Calendar, Clock, Heart, MessageCircle, Dev, ArrowRight, ChevronDown, ChevronUp } from "@/lib/icons";
 import { Button } from "@/components/ui/button";
-import { trackEvent } from "@/lib/analytics";
+import { trackArticleClick, trackViewMore, trackLink } from "@/lib/analytics";
 import type { DevToArticle } from "@/types";
 
 const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80";
@@ -53,7 +53,13 @@ function BlogCard({ article, index }: { article: DevToArticle; index: number }) 
         href={article.url}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => trackEvent("social_click", { platform: "DEV Community", url: article.url, location: "blog_card_image" })}
+        onClick={() =>
+          trackArticleClick({
+            article_title: article.title,
+            article_url: article.url,
+            placement: "blog_card_image",
+          })
+        }
         className="relative h-48 overflow-hidden bg-muted block"
       >
         <img
@@ -91,7 +97,13 @@ function BlogCard({ article, index }: { article: DevToArticle; index: number }) 
           href={article.url}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => trackEvent("social_click", { platform: "DEV Community", url: article.url, location: "blog_card_title" })}
+          onClick={() =>
+            trackArticleClick({
+              article_title: article.title,
+              article_url: article.url,
+              placement: "blog_card_title",
+            })
+          }
           className="block"
         >
           <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
@@ -172,10 +184,11 @@ export function Blog() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => {
-              trackEvent("view_more_click", {
-                section: "blog",
-                action: "redirect",
-                target: "devto_error_fallback",
+              trackLink({
+                name: "devto_error_fallback",
+                url: `https://dev.to/${siteConfig.devToUsername}`,
+                type: "external",
+                placement: "blog_error_fallback",
               });
             }}
             className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
@@ -189,7 +202,7 @@ export function Blog() {
       ) : (
         <>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedArticles?.map((article, index) => (
+            {displayedArticles?.map((article: DevToArticle, index: number) => (
               <BlogCard key={article.id} article={article} index={index} />
             ))}
           </div>
@@ -203,7 +216,7 @@ export function Blog() {
                 onClick={() => {
                   const next = !isExpanded;
                   setIsExpanded(next);
-                  trackEvent("view_more_click", {
+                  trackViewMore({
                     section: "blog",
                     action: next ? "expand" : "collapse",
                   });
@@ -224,10 +237,11 @@ export function Blog() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
-                trackEvent("view_more_click", {
-                  section: "blog",
-                  action: "redirect",
-                  target: "devto_profile",
+                trackLink({
+                  name: "devto_profile",
+                  url: `https://dev.to/${siteConfig.devToUsername}`,
+                  type: "external",
+                  placement: "blog_section",
                 });
               }}
               className="inline-flex items-center gap-2 rounded-full px-6 h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-105 active:scale-95 transition-all duration-300"

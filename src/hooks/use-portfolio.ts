@@ -24,7 +24,7 @@ export function useBlogPosts(limit = 6) {
     queryKey: ["blog-posts", limit],
     queryFn: () => fetchDevToArticles(limit),
     retry: 3,
-    retryDelay: (attemptIndex) => Math.pow(2, attemptIndex) * 1000,
+    retryDelay: (attemptIndex: number) => Math.pow(2, attemptIndex) * 1000,
     staleTime: 1000 * 60 * 60, // 1 hour
   });
 }

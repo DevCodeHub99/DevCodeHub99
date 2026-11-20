@@ -1,6 +1,7 @@
 import { Section } from "@/components/layout";
 import { aboutContent, stats } from "@/config/site";
 import { StatSkeleton, Skeleton } from "@/components/ui/skeleton";
+import { trackEvent } from "@/lib/analytics";
 
 interface AboutProps {
   isLoading?: boolean;
@@ -32,7 +33,14 @@ export function About({ isLoading = false }: AboutProps) {
             : stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="glass-card p-6 rounded-2xl hover:bg-card/60 transition-colors"
+                  onClick={() =>
+                    trackEvent("navigation_click", {
+                      link_name: `stat_${stat.label.toLowerCase().replace(/\s+/g, "_")}`,
+                      link_url: "#about",
+                      navigation_location: "about_stats",
+                    })
+                  }
+                  className="glass-card p-6 rounded-2xl hover:bg-card/60 transition-colors cursor-pointer"
                 >
                   <h3 className={`text-4xl font-bold mb-2 ${stat.colorClass}`}>
                     {stat.value}

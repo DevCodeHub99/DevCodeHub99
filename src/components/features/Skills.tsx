@@ -5,6 +5,7 @@ import { skillCategories } from "@/config/site";
 import { iconMap } from "@/lib/icons";
 import type { SkillCategory, Skill } from "@/types";
 import type { IconType } from "react-icons";
+import { trackSkill } from "@/lib/analytics";
 
 const categoryIcons: Record<SkillCategory, IconType> = {
   frontend: iconMap.Layout,
@@ -39,7 +40,16 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
       viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
       whileHover={{ y: -4, scale: 1.02 }}
-      className="group relative flex items-center gap-3 p-4 rounded-xl bg-card border border-border/50 hover:border-border hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden"
+      onClick={() => trackSkill(skill.name, skill.category)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e: React.KeyboardEvent) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          trackSkill(skill.name, skill.category);
+        }
+      }}
+      className="group relative flex items-center gap-3 p-4 rounded-xl bg-card border border-border/50 hover:border-border hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
       {/* Glow effect on hover */}
       <div 
